@@ -21,7 +21,7 @@ app.post('/whatsapp', (req, res) => {
 //Gemini Model 
 async function geminiModel(userInputText, userInputImage) {
   // For text-only input, use the gemini-pro model
-  const genAI = new GoogleGenerativeAI("AIzaSyDyXPOLFe7fNNfHXkBXD23X3qBkaz46RG0");
+  const genAI = new GoogleGenerativeAI("GoogleGenerativeAI API");
 
   if (!userInputImage) {
     // Handle text-only input (no image URL)
@@ -63,8 +63,8 @@ async function geminiModel(userInputText, userInputImage) {
 }
 
 async function sendReply(sender_no, prompt, mediaUrl) {
-  const accountSid = 'AC80d156f16a71378e578d0799c5a9ef5f';
-  const authToken = 'f49d601ad011366ed6d544b38fc1e3dd';
+  const accountSid = 'accountSid here';
+  const authToken = 'authToken here';
   const client = require('twilio')(accountSid, authToken);
   const model_output = await geminiModel(prompt, mediaUrl);
 
